@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import "./currencyInput.css";
-import CustomSelect from "../customSelect/CustomSelect";
+import "./currencyConverter.css";
+import CustomSelect from "../../components/customSelect/CustomSelect";
+import CustomButton from "../../components/CustomButton/CustomButton";
 
 interface FormValues {
   amount: number;
@@ -9,7 +10,7 @@ interface FormValues {
   toCurrency: string;
 }
 
-const CurrencyInput = () => {
+const CurrencyConverter = () => {
   const [currencies, setCurrencies] = useState<{ [key: string]: string }>({});
   const [conversionText, setConversionText] = useState<string>("");
 
@@ -78,7 +79,7 @@ const CurrencyInput = () => {
         )} ${toCurrency}`
       );
 
-      setTimer(30);
+      setTimer(600);
 
       if (intervalId) clearInterval(intervalId);
 
@@ -195,13 +196,12 @@ const CurrencyInput = () => {
             )}
 
             <div>
-              <button
+              <CustomButton
                 type="submit"
                 className="convertbtn"
                 disabled={formikProps.isSubmitting}
-              >
-                Convert
-              </button>
+                title="Convert"
+              />
             </div>
           </Form>
         )}
@@ -210,4 +210,4 @@ const CurrencyInput = () => {
   );
 };
 
-export default CurrencyInput;
+export default CurrencyConverter;

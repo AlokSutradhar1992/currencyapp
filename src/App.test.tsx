@@ -1,9 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders label in currency app", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const labelElement = screen.getByText(/Amount/i);
+  expect(labelElement).toBeInTheDocument();
+});
+
+test("renders button in currency app", () => {
+  render(<App />);
+  const buttonElement = screen.getByRole("button", { name: /Convert/i });
+  expect(buttonElement).toBeInTheDocument();
 });

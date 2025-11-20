@@ -1,10 +1,10 @@
 import "./App.css";
-import CurrencyInput from "./components/currencyInput/CurrencyInput";
+import CurrencyConverter from "./pages/currencyConverter/CurrencyConverter";
 
 function App() {
   return (
     <div className="App">
-      <CurrencyInput />
+      <CurrencyConverter />
     </div>
   );
 }
