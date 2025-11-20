@@ -101,7 +101,6 @@ const CurrencyConverter = () => {
   };
 
   const options = Object.entries(currencies).map(([code, name]) => {
-    console.log("codes", code);
     const countryCode = code.slice(0, 2).toLowerCase();
     const flagUrl = `https://flagcdn.com/16x12/${countryCode}.png`;
     return {
