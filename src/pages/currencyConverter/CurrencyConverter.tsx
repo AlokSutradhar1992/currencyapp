@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./currencyConverter.css";
 import CustomSelect from "../../components/customSelect/CustomSelect";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import DefaultFlag from "./default-flag.png";
 
 interface FormValues {
   amount: number;
@@ -108,7 +109,14 @@ const CurrencyConverter = () => {
       label: (
         <div className="countryList">
           {countryCode && (
-            <img src={flagUrl} alt={code} className="countryFlag" />
+            <img
+              src={flagUrl}
+              alt={code}
+              className="countryFlag"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = DefaultFlag; // fallback image
+              }}
+            />
           )}
           {code}/{name}
         </div>
